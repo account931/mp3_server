@@ -1,0 +1,170 @@
+/* Form margins*/
+#myFormZ{
+	margin:4%;
+  }
+  
+  
+ 
+   /* Break long words not to overlap*/
+ *{
+	 word-wrap: break-word;
+ } 
+ 
+ 
+   /*  ----------------Mobile */
+@media screen and (max-width: 460px) {   
+ 
+	
+}
+/* --------------END  Mobile */
+
+.footer {
+  /* position: absolute; */
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef; /* #2ba6cb; */
+  text-align: center;  
+}
+
+
+/* Mp3 player in header*/
+#mpPlayer{
+width:90%;
+	
+}
+
+/* each song div in the list*/
+.single-song{
+	margin-top:35px;
+	
+}
+
+/* Song tittle in the player*/
+#playerSongTitle{
+	width:50%;
+	margin: 0 auto;  
+	padding:0px;
+}
+
+
+
+
+#eq{
+	margin-left:20px;
+	width:20%;
+}
+
+
+/* Header with player are fixed */
+#headX{
+	
+}
+
+
+
+
+
+
+
+
+
+
+  /* Class that sets background-image */
+.head-style{
+	color:white;
+	background-color:lavender;padding:10px;
+	background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/mCz7hqj/videoblocks-geometric-line-animation-background-loop-blue-and-white_rfffmfbc5l_thumbnail-small01.jpg');  /*url('../images/bg-pattern.jpg')*/
+	text-shadow: 1px 1px 2px black, 0 0 1em red; /* Shadow params */
+	/* background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); */
+}
+
+
+
+
+.myShadow{
+    box-shadow: 10px 10px 5px grey;
+}
+ 
+.textShadow{ 
+    color: white; 
+	/* text-shadow: black 0.2em 0.1em 0.2em; */
+	text-shadow:
+    1px  1px 2px black,
+    1px -1px 2px black,
+   -1px  1px 2px black,
+   -1px -1px 2px black;	 
+}  
+
+
+
+
+
+
+
+
+
+
+
+
+  /* CUSTOM  TOOGLE SWITCH */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+ /* END CUSTOM  TOOGLE SWITCH */
