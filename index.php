@@ -25,8 +25,9 @@
 	  <script src="js/changeStyleTheme.js"></script> <!-- change wallpapers,changeStyleTheme JS-->
 	  
 	  
+
 	  
-	
+	  
 	  
 	  <meta name="viewport" content="width=device-width" />
 	  
@@ -37,7 +38,7 @@
 
      <body>  
 	 
-	 
+	
 
 
 
@@ -51,11 +52,11 @@
 		  <audio id="audio" class="styleme" width="320" height="240" controls>
               <source src="mp3/Animal.mp3" type="audio/mp3">
 		  </audio>
-		  
+		  <!------------------ MP3 PLAYER ------------------>
 		  
 		   
            <!--<p class="header_p">QR Codes on-line processor   <span class="glyphicon glyphicon-duplicate"></span>-->    <!--mp3_server etc-->
-           </p>
+           <!--</p>-->
 		   <!--<p class="language"><a href="/eng">ENG</a></p>-->
 		   
 	   </div>
@@ -77,7 +78,7 @@
 				 
 				      <!-------------- Mp3 files list------------->
 				    
-				          <div class="col-sm-12 col-xs-12" id="mp3Result">
+				          <div class="col-sm-12 col-xs-12 " id="mp3Result">
 						      <?php
 							      include '/Classes/autoload.php'; //uses autoload instead of manual includin each class-> Error if it is included in 2 files=only1 is accepted
 							      include 'Classes/MpServerList.php';
@@ -138,8 +139,8 @@
 				  
 				  
 				  
-				  <!------------------- Checkbox REPLAY LOOP, absolute position, top left ------------------->
-				  <div style="position:absolute; top:40px; left:1px;" title="Loop">
+				  <!------------------- Checkbox REPLAY LOOP,repeat one song, absolute position, top left ------------------->
+				  <div style="position:absolute; top:50px; left:1px;" title="Loop">
 				   &nbsp;&nbsp;Loop<br>
 				  <label class="switch">
                       <input type="checkbox" id="myCheck">
@@ -148,6 +149,17 @@
 				  <!--<i class="fa fa-rotate-right" style="font-size:30px;margin-left:20px;"></i>-->
 				  </div>
                   <!------------------- Checkbox REPLAY LOOP, absolute position, top left ------------------->
+				  
+				  
+				  
+				  <!------------------- EQ, absolute position, ------------------->
+				  <!--
+				  <div style="position:absolute; top:0px; right:1px;" style="width:10%;" title="EQ">
+				    <img id="equalizer" src="" alt="eq"/>
+				  </div>
+				  -->
+                  <!------------------- EQ, absolute position, ------------------->
+				  
 				  
 				  
 		

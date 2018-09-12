@@ -1,0 +1,27 @@
+Mp3 Player
+How it works:
+1. All song are located in folder "/mp3/"; ALL MP3 NAMES MUST BE WITHOUT BLANKSPACES!!!!!!!!!!!!!!!
+
+2. Method  {$mpObject = new MpServerList(); $mpObject->getMp3List("mp3");} in Classes/MpServerList.php scan the folder and creates list with button  "Play" and "Download".
+   Every "Play" button contains relevant play image {<i class='fa fa-play>} with id that matches song name.
+   Every "Download" button contains relevant download image {<i class='fa fa-download>} and wrapped to <a href> to php file that makes downloading.
+     <a href='Classes/downloadmp3.php?file=" . $mp3Path . >, where {$mp3Path} is  relevant path, recieved by { dirname(__DIR__) . "/mp3/" .	$files[$i];}
+
+3. When u click "Play" button, it triggers {function playTrack(idX)} in (js/mp3_servers.js)-> we get id of the clicked "Play" button which is the same as song, sets {audio.src='mp3/' + id;} and play by {audio.play();}
+   {audio} is the PLAYER variable, received by  {audio = document.getElementById("audio");}
+   Also it sets song title in Player with {setPlayerSongTitle(name);}
+ 
+4. Reloop/repeat one song is activated by custom checkbox, if it is checked, we set {audio.loop = true;}  in {$("#myCheck").click(function()}
+
+5. Play all songs/play next song when previous ends (as player does not play the next song by default)->
+   #first we create a JS array with all song. It is possible to create a Php array with songs, but had troubles passing it to JS. 
+    So, we assign every song(Play button) a special class="songCount" and with that can count all songs or iterate over them {$(".songCount").each(function()}
+   #In this iteration we get the id of the 1st child of this button( it is {<i class='fa fa-play>} with id as the song) and adds this id to {js_AllSongsArray}
+   #Then when one song ends {$("#audio").bind('ended', function()}, we check if {Reloop/repeat one song}is not checked, and if not check play all song in queque: gets the current song (audio.src),
+   finds it's indexOf in {js_AllSongsArray} and set audio.src with next track/js_AllSongsArray element = {audio.src='mp3/' + js_AllSongsArray[number + 1];}
+   
+6. Play or Pause Icons are changed with {function changePlayPauseIcon($(this))} (only for songs in all song list)
+
+
+#change play/pause icons, setting/removing eq image on Player click
+#new scroll

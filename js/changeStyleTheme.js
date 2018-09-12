@@ -8,6 +8,10 @@ $(document).ready(function(){
 	    'http://www.prideinmcalester.com/wp-content/uploads/2016/10/webtreats-seamless-web-background-primary-green-pattern-2-flickr-94133.jpg', //green
 		'https://image.freepik.com/free-vector/yellow-swirls-pattern_1040-37.jpg',  //yellow
 		'https://i.stack.imgur.com/P8Sda.png', //gradient
+		'https://s3.envato.com/files/240529620/Schematic%20Lines%20Blue%20Background%20590x300.jpg',
+		'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-v4BwieQJnuNoHp12gvT_7oOX_BFdwTYA2hGwTSz0JazKvpEg',
+		'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdvqbHuLuUeHxNfNYzGYr1JFlfwptFh6T3UWy8hiDA69Nlh063',
+		'https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/cW5lDBG/videoblocks-animation-of-beautiful-futuristic-background-with-dots-connected-lines-on-a-blue-background-loopable_rqezy9lx3e_thumbnail-full01.png',
 		
 	    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQsQf2-zwuStKf6u2V2HE_nCy9rRvk5M8ag043FAenQbOrCXY3tA', //violat blocks
 		'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Color_icon_purple.svg/2000px-Color_icon_purple.svg.png', //same in HD
