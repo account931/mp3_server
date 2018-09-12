@@ -120,7 +120,7 @@ $(document).ready(function(){
 			
 			
 			//function to scroll down to current song
-		   scrollResults( "#" + trackName, ".parent().parent().parent().");  //arg(DivID, levels to go up from DivID)
+		   scrollResults( "#" + trackName, ".parent().parent().");  //arg(DivID, levels to go up from DivID)
 		  
 		}
     });
