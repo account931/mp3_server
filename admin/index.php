@@ -6,7 +6,7 @@
       <meta http-equiv="Content-Type" content="text/html">
       <meta name="description" content="Mp3 server" />
       <meta name="keywords" content="Mp3 server">
-      <title>Mp3 server</title>
+      <title>Admin server</title>
   
       <!--Favicon-->
       <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -19,9 +19,9 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	 
 
-      <link rel="stylesheet" type="text/css" media="all" href="css/mp3_server.css">
+      <link rel="stylesheet" type="text/css" media="all" href="css/admin_upload.css">
 	  
-      <script src="js/mp3_server.js"></script><!--  Core myFacebook JS-->
+      <script src="js/admin_upload.js"></script><!--  Core myFacebook JS-->
 	  <script src="js/changeStyleTheme.js"></script> <!-- change wallpapers,changeStyleTheme JS-->
 	  
 	  
@@ -45,18 +45,7 @@
 
 
        <div id="headX" class="jumbotron text-center gradient alert-success my-background head-style" style =' background-color:lavender ;'> <!--#2ba6cb;-->
-         <h1 id="h1Text"> <span id="textChange"> Mp3 server on-line</span> <i class='fa fa-music' style='font-size:46px;'></i>  </h1> 
-		 
-		 <!------------------ MP3 PLAYER DEACTIVATED, MOVED DOWN ------------------><!-- class="control-play-pause-EQ" is common for player and all songList to trigger changing Play/Pause Icon and hide/show EQ-->
-		 <!--
-		 <p id="playerSongTitleR" class="" style="height:1.4em;"></p>
-		  <audio id="audioR" class="styleme control-play-pause-EQ" width="320" height="240" controls>   
-              <source src="" type="audio/mp3">
-		  </audio>
-		  -->
-		  <!------------------ MP3 PLAYER ------------------>
-		  
-		<!--<img src="images/radio.png" alt="eq" class="eqHeader"/>-->
+         <h1 id="h1Text"> <span id="textChange"> Admin server</span> <i class='fa fa-music' style='font-size:46px;'></i>  </h1> 
 	   </div>
 
 
@@ -74,26 +63,50 @@
 				 
 				 
 				 
-				      <!-------------- Mp3 files list------------->
+				      <!----------------------  FORM to Upload mp3 --------------------------->
 				    
-				          <div class="col-sm-12 col-xs-12 " id="mp3Result">
-						      <?php
-							      include '/Classes/autoload.php'; //uses autoload instead of manual includin each class-> Error if it is included in 2 files=only1 is accepted
-							      include 'Classes/MpServerList.php';
-								  $mpObject = new MpServerList();
-								  $mpObject->getMp3List("mp3");
-							  ?>      
+				          <div class="col-sm-12 col-xs-12 " id="mp3Result">		  
+						  
+						  
+				              <form class="form-inline" id="formN"  action="Classes/upload.php" method="post" enctype="multipart/form-data">
+							  
+							      <!-- Input file field-->
+                                  <div class="form-group upl-field"> <!-- class= 'upl-field' for appending in JS-->
+                                      <label for="sum">&nbsp;File</label>
+								      <input type="file" name="fileToUploadX[]" id="fileToUpload" class="form-control" required>
+                                  </div><!-- br is a must to maintain symetri-->
+					 	 
+						          <!-- button to add fields, inputs--> 
+								  <div class="form-group">
+								  <label for="sum">&nbsp;File</label>
+					              <button class="add_form_field">Add New File &nbsp; <span style="font-size:16px; font-weight:bold;"> + </span></button>
+						          </div>
+								  
+					              <br> <br> <br> <br> <br>
+								  
+								  <!-- Submit button-->
+								  <div class="form-group">
+						              <input type="submit" value="Upload Image" name="submit">
+                                      <!--<input id ="getFormSerialize" type="button" class="btn btn-default " style="font-size:20px" value="Send">-->
+						              <!--<br><br><br>-->
+								 </div>
+								 
+                             </form>
+					  
+					         <!-- button to add fields, inputs--> 
+					         <!--<button class="add_form_field">Add New Field &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>-->
+					         <br><br><br>				
+						  
+					  				      
 				          </div>
 				          <br><br><br>
-				      <!-------------- END  Mp3 files list------------->
+				      <!----------------------  END FORM to Upload mp3 --------------------------->
 				 
 				 
 				  
 				  
 				
-	 
-	 
-	 
+
 	 
 				   
 				   
@@ -129,34 +142,12 @@
 				  
 				  
 				  
-				  <!------------------- Checkbox REPLAY LOOP,repeat one song, absolute position, top left ------------------->
-				  <div style="position:absolute; top:60px; left:1px;" title="Loop">
-				   &nbsp;&nbsp;<br>
-				  <label class="switch">
-                      <input type="checkbox" id="myCheck">
-                          <span class="slider round"></span>
-                  </label> 
-				  <!--<i class="fa fa-rotate-right" style="font-size:30px;margin-left:20px;"></i>-->
-				  </div>
-                  <!------------------- Checkbox REPLAY LOOP, absolute position, top left ------------------------------------->
 				  
-				  
-				  
-				 <!---------------------------------- MP3 PLAYER FIXED POSITION--------------------------->
-				 <div class="col-sm-12 col-xs-12" style="position:fixed; bottom:0px;">
-				   <center>
-		             <p id="playerSongTitle" class=""></p>
-		                 <audio id="audio" class="styleme control-play-pause-EQ" width="320" height="240" controls>   <!-- class="control-play-pause-EQ" is common for player and all songList to trigger changing Play/Pause Icon and hide/show EQ-->
-                             <source src="" type="audio/mp3">
-		                 </audio>
-					</center>
-				 </div>
-		         <!--------------------------------- MP3 PLAYER FIXED POSITION ----------------------------->
 				 
 				 
 				 
 				 <!---------------------------------- Link to upload mp3--------------------------->
-				 <p class="upload"><a class="" href="admin/">Upload mp3</a></p> <!-- Link to upload-->
+				 <p class="upload"><a class="" href="../">Back to mp3</a></p> <!-- Link to upload-->
 				  
 				  
 				  
@@ -195,7 +186,7 @@
 <?php
 
 // Record (with CLASS) all the  input  to  txt;  //;
-      include("Classes/RecordTxt.php"); //using autoload instead of it
-      RecordTxt::RecordAnyInput(array(/*$user*/), 'recordText/mp3_server.txt');// Record  to  text;
+      //include("Classes/RecordTxt.php"); //using autoload instead of it
+      //RecordTxt::RecordAnyInput(array(/*$user*/), 'recordText/mp3_server.txt');// Record  to  text;
 //End  Record;
 ?>

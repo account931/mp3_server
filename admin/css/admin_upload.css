@@ -113,7 +113,7 @@ width:90%;
 .head-style{
 	color:white;
 	background-color:lavender;padding:10px;
-	background-image: url('../images/bg_image.jpg');  /*url('../images/bg-pattern.jpg')*/
+	background-image: url('../../images/bg_image.jpg');  /*url('../images/bg-pattern.jpg')*/
 	text-shadow: 1px 1px 2px black, 0 0 1em red; /* Shadow params */
 	/* background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); */
 
