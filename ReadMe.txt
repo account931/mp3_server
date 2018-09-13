@@ -25,3 +25,17 @@ How it works:
 
 #change play/pause icons, setting/removing eq image on Player click
 #new scroll
+
+describe mega error with zzz.hosting, when url was "mp3" , not "mp3_server", and relevant path to music was zzz.......mp3/mp3/song.mp3 and on split left the id path as "mp/song.mp3", not pure "song.mp3".Solution just rename zz hosting to mp3_server and path now 'zzz.......mp3_server/mp3/song.mp3'
+
+
+
+
+Rules for song name: only latin, no blankspace, no "/mp3/"
+
+
+
+
+
+
+

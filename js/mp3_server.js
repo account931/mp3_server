@@ -1,16 +1,30 @@
 $(document).ready(function(){
 	//audio is PLAYER 
-	var trackID;
+	 var audio = document.getElementById("audio"); //gets player html el ID //make this var global to pass to $("#myCheck").click(function() + $(".control_play").click(function()
+	 var trackID;
 	
-    //Click on play in  song lists
+    //Click on play/puase button in  song lists
 	// **************************************************************************************
     // **************************************************************************************
     //                                                                                     ** 
 	$(".control_play").click(function() {   // $(document).on("click", '.circle', function() {   // this  click  is  used  to   react  to  newly generated cicles;	
-	  trackID = this.id;  //global varibale to use in code
-      playThisTrack(this.id); // function to play the clicked track
-	  changePlayPauseIcon($(this));  // function to change play/pause icons in song list,  works when u change songs in all song list
-      showOrHideCustomEQinAllSongList($(this));	//show/hide EQ in a current  song all song list	  
+	
+	    //If u click on "Pause" button to stop the song
+	    if ($(this).hasClass('fa-pause')){
+		    audio.pause();
+            audio.currentTime = 0;
+		    $(this).removeClass("fa-pause").addClass("fa-play"); //sets icons to "PLAY" icon
+		    $(".eqSmall").remove();  //removes any eqs
+		
+		    return false; //stop further
+		
+	    } else { //Play it 
+	  
+	        trackID = this.id;  //global varibale to use in code
+            playThisTrack(this.id); // function to play the clicked track
+	        //changePlayPauseIcon($(this));  // function to change play/pause icons in song list,  works when u change songs in all song list -> reassigned to {function universalFunctionChange_Play_Pause_Icon_hideShow_EQ()}
+            //showOrHideCustomEQinAllSongList($(this));	//show/hide EQ in a current  song all song list	  -> reassigned to {function universalFunctionChange_Play_Pause_Icon_hideShow_EQ()}
+	    }
 	});
 	 
 	// **                                                                                  **
@@ -23,12 +37,36 @@ $(document).ready(function(){
 	
 	
 	
+	
+	
+    //Click on class="control-play-pause-EQ', that is embeded both in audio.Player and Play Button in all songs list
+	// **************************************************************************************
+    // **************************************************************************************
+    //                                                                                     ** 
+	$(".control-play-pause-EQ").click(function() {     // this  click  is  used  to   react  to  newly generated cicles;
+	
+       //Universal function to Show/hide EQ <img> + to change Play/Pause Icons, works on Click on class="control-play-pause-EQ', that is embeded both in audio.Player and Play Button in all songs list
+	    universalFunctionChange_Play_Pause_Icon_hideShow_EQ();
+	});
+	 
+	// **                                                                                  **
+    // **************************************************************************************
+    // **************************************************************************************
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// **************************************************************************************
     // **************************************************************************************
     //                                                                                     ** 
 	function playThisTrack(idX)
 	{
-       /*var*/ audio = document.getElementById("audio"); //gets player html el ID //make this var global to pass to $("#myCheck").click(function() { 
+       ///*var*/ audio = document.getElementById("audio"); //gets player html el ID //make this var global to pass to $("#myCheck").click(function() { 
 	   audio.src='mp3/' + idX;   //gets the id of clicked song that is also the path
        audio.load();
        audio.play();
@@ -85,7 +123,7 @@ $(document).ready(function(){
 	// **************************************************************************************
     // **************************************************************************************
     //                                                                                     ** 
-	
+	window.trackName;  //must be global window to use in scrollResults()
 	$("#audio").bind('ended', function(){
         // done playing 
 		
@@ -105,22 +143,26 @@ $(document).ready(function(){
 		   setPlayerSongTitle(js_AllSongsArray[number + 1]);
 		   
 		   // change current song icon to "Play", next song icon to "Pause" in all songs list---------
+		   //alert(audio.src);
+		   /*
 		    var trackID = audio.src.split('/mp3/');  //gets current song in Player and splits the path(folder/mp3/song55.mp3) by  '/mp3/'
-            var trackName = trackID[trackID.length - 1];  //gets the last array elem (i.e song name itself)
+            var trackName = trackID[trackID.length - 1]; //alert(trackName ); //gets the last array elem (i.e song name itself)
 		    //Mega ERROR FIX-> some songs(and therefore their ids) contain "." which cause crash when trying to address those ids without using escape strings "\\"
 		    trackName = trackName.split('.').join('\\.');  //changes {6-calf-doubleR.mp3} to {6-calf-doubleR\\.mp3}
 			$(".control_play").removeClass("fa-pause").addClass("fa-play"); //sets all icon to "Play"
 		    $("#" + trackName).removeClass("fa-play").addClass("fa-pause"); //sets now next playing to "Pause"
 			// END change current song icon to "Play", next song icon to "Pause" in all songs list ------
+			*/
 			
-			
+			universalFunctionChange_Play_Pause_Icon_hideShow_EQ();
 			
 			//functions removes all EQs images from all_song_list and set EQ image to current song only
-			showOrHideCustomEQinAllSongList($("#" + trackName));
+			//showOrHideCustomEQinAllSongList($("#" + trackName));
+			//PUT NEW HERE!!!!!!!!!!!
 			
 			
-			//function to scroll down to current song
-		   scrollResults( "#" + trackName, ".parent().parent().");  //arg(DivID, levels to go up from DivID)
+			//function to scroll down to current song, window is a must
+		   scrollResults( "#" + window.trackName, ".parent().parent().");  //arg(DivID, levels to go up from DivID)
 		  
 		}
     });
@@ -142,7 +184,7 @@ $(document).ready(function(){
 	
 	function setPlayerSongTitle(name)
 	{
-		$("#playerSongTitle").stop().fadeOut("slow",function(){ $(this).html(  name )}).fadeIn(2000);
+		$("#playerSongTitle").stop().fadeOut(/*"slow"*/ 600,function(){ $(this).html(  name )}).fadeIn(800);
 	}
 	 
 	// **                                                                                  **
@@ -153,8 +195,72 @@ $(document).ready(function(){
 	
 	
 	
+	//Universal function to Show/hide EQ <img> + to change Play/Pause Icons, works on Click on class="control-play-pause-EQ', that is embeded both in audio.Player and Play Button in all songs list
+	// **************************************************************************************
+    // **************************************************************************************
+    //                                                                                     ** 
+	   
+	
+	   function  universalFunctionChange_Play_Pause_Icon_hideShow_EQ()
+	   {
+		   //if no mp3 loaded in Player(i.e if clicked on Player play button right after page load)
+		   if(audio.src==""){
+			   alert("No mp3 selected");
+			   return false;
+		   }
+		   
+		   //finding current audio Player song (i.e id which equils song name)
+		    var trackID = audio.src.split('/mp3/');  //gets current song in Player and splits the path(folder/mp3/song55.mp3) by  '/mp3/'
+	        /*var*/ trackName = trackID[trackID.length - 1];  //gets the last array elem (i.e song name itself) //GLOBALLY declared before {$("#audio").bind('ended',} to be visible in {scrollResults()}
+			//alert(trackName);
+		    //Mega ERROR FIX-> some songs(and therefore their ids) contain "." which cause crash when trying to address those ids without using escape strings "\\"
+		    trackName = trackName.split('.').join('\\.');  //changes {6-calf-doubleR.mp3} to {6-calf-doubleR\\.mp3}
+		   //finding current audio Player song (i.e id which equils song name)
+		   //alert(trackName);
+		   
+		    //If player is playing now, so after clicking it stops playing. Makes all icons with "Play" Icon
+	        if (audio.duration > 0 && !audio.paused) {
+            //Its playing...do your job
+			    //change current song icon to "Pause",  in all songs list
+			    $(".control_play").removeClass("fa-pause").addClass("fa-play"); //sets all icon to "Play" icon
+				//$("#" + trackName).removeClass("fa-play").addClass("fa-pause"); //sets only playing song with "Pause" Icon // ERROR in this line
+				
+				
+				//remove all EQs
+		        $(".eqSmall").remove(); //removes any eqs
+				
+				
+            } else {  
+			//Not playing...maybe paused now, stopped or never played.
+		    //set 'Play' icon in all song list, according to Id of song playing in Player
+            
+			
+			    // change current song icon to "Pause",  in all songs list------------
+				$(".control_play").removeClass("fa-pause").addClass("fa-play"); //sets all icon to "Play" icon
+		        $("#" + trackName).removeClass("fa-play").addClass("fa-pause");
+                // END change current song icon to "Pause",  in all songs list---------
+		  
+		        //adds EQ 
+				//{passedThis} is $(this), we go up 2 levels to parent div and append inside in the end of it image
+				$(".eqSmall").remove();  //removes any eqs
+				//adds eq to a specific song
+		        $("#" + trackName).parent().parent().append("<img class='eqSmall' src='images/eq.gif' alt='eq' />");
+
+        }
+		//return trackName;
+	   }
+	
+	// **                                                                                  **
+    // **************************************************************************************
+    // **************************************************************************************
 	
 	
+	
+	
+	/*
+	
+	
+	//RECONSTRUCT!!!!!!!!!!!!!!!!! -> reassigned to {function universalFunctionChange_Play_Pause_Icon_hideShow_EQ()}
 	//function to change play/pause icons in song list, works when u change songs in all song list
 	// **************************************************************************************
     // **************************************************************************************
@@ -173,7 +279,7 @@ $(document).ready(function(){
 	
 	
 	
-	
+	//RECONSTRUCT!!!!!!!!!!!!!!!!! -> reassigned to {function universalFunctionChange_Play_Pause_Icon_hideShow_EQ()}
 	//function to change play/pause icons in song list, works when u click play/pause in player itself
 	// **************************************************************************************
     // **************************************************************************************
@@ -209,7 +315,7 @@ $(document).ready(function(){
 	
 	
 	
-	
+	// RECONSTRRUCT!!!!!!!!!!!!!!! -> reassigned to {function universalFunctionChange_Play_Pause_Icon_hideShow_EQ()}
 	////functions removes all EQs images from all_song_list and set EQ image to current song only
 	////remove all EQs images from all song list and set EQ image to current song only
 	// **************************************************************************************
@@ -229,7 +335,7 @@ $(document).ready(function(){
 	
 	
 	
-	
+	*/
 	
 	
 	

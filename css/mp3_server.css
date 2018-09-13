@@ -38,24 +38,41 @@ width:90%;
 /* each song div in the list*/
 .single-song{
 	margin-top:35px;
+	 -webkit-transition: all 1.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+     transition: all 1.5s ease;
 	
 }
 
 /* Song tittle in the player*/
 #playerSongTitle{
-	width:90%;
-	margin: 0 auto;  
-	padding:0px;
+	height:1.4em;padding-bottom:2.1em;width:20%;background:grey;border-radius:20px;color:white;
+	margin: 0 auto;  	
+}
+
+/*----------------Mobile */
+@media screen and (max-width: 460px) {   
+    #playerSongTitle{width:70%;}
 }
 
 
-
-
-#eq{
-	margin-left:20px;
-	width:20%;
+/* EQ image*/
+.eqSmall{
+	width:5%;
+	margin-left:2em;'
 }
 
+/*  ----------------Mobile */
+@media screen and (max-width: 460px) {   
+ .eqSmall{
+	width:14%;
+	margin-left:2em;}
+}
+/* --------------END  Mobile */
+
+/* EQ in Header */
+.eqHeader{width:7%;}
 
 /* Header with player are fixed */
 #headX{
@@ -70,6 +87,24 @@ width:90%;
 
 
 
+.styleme{
+	
+}
+
+
+/*  Language Selection at top right */
+.upload {
+	position:absolute;
+	right: 1%;
+	top:0.5em;
+	cursor:pointer;
+	font-size:1em;
+	text-color:white;
+}
+
+.upload a{ color:white;}
+
+
 
 
 
@@ -78,7 +113,7 @@ width:90%;
 .head-style{
 	color:white;
 	background-color:lavender;padding:10px;
-	background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/cW5lDBG/videoblocks-animation-of-beautiful-futuristic-background-with-dots-connected-lines-on-a-blue-background-loopable_rqezy9lx3e_thumbnail-full01.png');  /*url('../images/bg-pattern.jpg')*/
+	background-image: url('../images/pattern1.png');  /*url('../images/bg-pattern.jpg')*/
 	text-shadow: 1px 1px 2px black, 0 0 1em red; /* Shadow params */
 	/* background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); */
 
@@ -186,9 +221,19 @@ input:checked + .slider:before {
  
  
  
- 
- 
- 
+ /*-----  AUDIO style ------*/
+ audio
+{
+-webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-webkit-transform: scale(1.05);
+-moz-transform: scale(1.05);
+transform: scale(1.35);
+
+}
+
+ /*----- END AUDIO style ------*/
  
  
  

@@ -34,9 +34,13 @@ public  function getMp3List($fileFolder){
          if (($files[$i] != ".") && ($files[$i] != "..")) { 
 		     echo "<div class='single-song myShadow'>";
 			 echo "<p style='text-decoration:underline'> Song " . $files[$i] . "</p>";  //song name
+			 
 			 //Play button
-			 echo "<button  class='btn myShadow songCount' title='Play'><i class='fa fa-play control_play' id='" . $files[$i] . "' style='font-size:36px; margin-left:5px;'></i></button>&nbsp;&nbsp;&nbsp;";  
+			 //<!-- class="control-play-pause-EQ" is common for player and all songList to trigger changing Play/Pause Icon and hide/show EQ-->
+			 echo "<button  class='btn myShadow songCount' title='Play'><i class='fa fa-play control_play control-play-pause-EQ' id='" . $files[$i] . "' style='font-size:36px; margin-left:5px;'></i></button>&nbsp;&nbsp;&nbsp;";  
              
+			 
+			 
 			 //	Icon to Download file 	
              $mp3Path = dirname(__DIR__) . "/mp3/" .	$files[$i];  // relative path to mp3 file
              //echo "<br>" . $mp3Path . "<br>";		 

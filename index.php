@@ -47,18 +47,16 @@
        <div id="headX" class="jumbotron text-center gradient alert-success my-background head-style" style =' background-color:lavender ;'> <!--#2ba6cb;-->
          <h1 id="h1Text"> <span id="textChange"> Mp3 server on-line</span> <i class='fa fa-music' style='font-size:46px;'></i>  </h1> 
 		 
-		 <!------------------ MP3 PLAYER ------------------>
-		 <p id="playerSongTitle" class=""></p>
-		  <audio id="audio" class="styleme" width="320" height="240" controls>
-              <source src="mp3/Animal.mp3" type="audio/mp3">
+		 <!------------------ MP3 PLAYER DEACTIVATED, MOVED DOWN ------------------><!-- class="control-play-pause-EQ" is common for player and all songList to trigger changing Play/Pause Icon and hide/show EQ-->
+		 <!--
+		 <p id="playerSongTitleR" class="" style="height:1.4em;"></p>
+		  <audio id="audioR" class="styleme control-play-pause-EQ" width="320" height="240" controls>   
+              <source src="" type="audio/mp3">
 		  </audio>
+		  -->
 		  <!------------------ MP3 PLAYER ------------------>
 		  
-		   
-           <!--<p class="header_p">QR Codes on-line processor   <span class="glyphicon glyphicon-duplicate"></span>-->    <!--mp3_server etc-->
-           <!--</p>-->
-		   <!--<p class="language"><a href="/eng">ENG</a></p>-->
-		   
+		<img src="images/radio.png" alt="eq" class="eqHeader"/>	
 	   </div>
 
 
@@ -104,15 +102,7 @@
 				  
 				  
 				  
-				     <!-------------- Mp3 Player(fixed to bottom)------------->
-					 <!--
-				     <div class="" id="mpPlayer" >   <p>fdgdfgfg</p>
-				      <audio class="styleme" width="320" height="240" controls>
-                          <source src="mp3/Animal.mp3" type="audio/mp3">
-                      </audio>
-				     </div>
-				      -->
-				     <!-------------- Mp3 Player(fixed to bottom)------------->
+				  
 				
 				
 				
@@ -140,32 +130,40 @@
 				  
 				  
 				  <!------------------- Checkbox REPLAY LOOP,repeat one song, absolute position, top left ------------------->
-				  <div style="position:absolute; top:50px; left:1px;" title="Loop">
-				   &nbsp;&nbsp;Loop<br>
+				  <div style="position:absolute; top:60px; left:1px;" title="Loop">
+				   &nbsp;&nbsp;<br>
 				  <label class="switch">
                       <input type="checkbox" id="myCheck">
                           <span class="slider round"></span>
                   </label> 
 				  <!--<i class="fa fa-rotate-right" style="font-size:30px;margin-left:20px;"></i>-->
 				  </div>
-                  <!------------------- Checkbox REPLAY LOOP, absolute position, top left ------------------->
+                  <!------------------- Checkbox REPLAY LOOP, absolute position, top left ------------------------------------->
 				  
 				  
 				  
-				  <!------------------- EQ, absolute position, ------------------->
-				  <!--
-				  <div style="position:absolute; top:0px; right:1px;" style="width:10%;" title="EQ">
-				    <img id="equalizer" src="" alt="eq"/>
-				  </div>
-				  -->
-                  <!------------------- EQ, absolute position, ------------------->
+				 <!---------------------------------- MP3 PLAYER FIXED POSITION--------------------------->
+				 <div class="col-sm-12 col-xs-12" style="position:fixed; bottom:0px;">
+				   <center>
+		             <p id="playerSongTitle" class=""></p>
+		                 <audio id="audio" class="styleme control-play-pause-EQ" width="320" height="240" controls>   <!-- class="control-play-pause-EQ" is common for player and all songList to trigger changing Play/Pause Icon and hide/show EQ-->
+                             <source src="" type="audio/mp3">
+		                 </audio>
+					</center>
+				 </div>
+		         <!--------------------------------- MP3 PLAYER FIXED POSITION ----------------------------->
+				 
+				 
+				 
+				 <!---------------------------------- Link to upload mp3--------------------------->
+				 <p class="upload"><a class="" href="#">Upload mp3</a></p> <!-- Link to upload-->
 				  
 				  
 				  
 		
 		          <!------------- Footer ------------->
-				  <div class="footer navbar-fixed-bottom"> <!--navbar-fixed-bottom  fixxes bootom problem-->
-				      Contact: <strong>dimmm931@gmail.com</strong><br>
+				  <div class="footer "> <!--navbar-fixed-bottom  fixxes bootom problem-->
+				      Contact: <strong>@gmail.com</strong><br>
 					  <?php  echo date("Y"); ?>
 				  </div>
 		          <!------------ END Footer ----------->  
