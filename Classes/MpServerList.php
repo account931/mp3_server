@@ -25,11 +25,12 @@ public  function getMp3List($fileFolder){
      //$cols = 5; //
 	 
 	 
-     $filesX = scandir($dir);   //scan folder files
+     $files = scandir($dir);   //scan folder files
 	 
 	 //Fix not to include to scandir results inner folder "mp3/uploadFiles"
-	 $folders = array('..', '.', 'uploadFiles');  //array that contains which folders not to scandir()
-     $files = array_diff(/*scandir($dir)*/$filesX, $folders);
+	 
+	 //$folders = array(/*'..', '.',*/ 'uploadFiles');  //array that contains which folders not to scandir()
+     //$files = array_diff(/*scandir($dir)*/$filesX, $folders);
 	 //Fix not to include to scandir results inner folder "mp3/uploadFiles"
   
      //$k = 0; 
