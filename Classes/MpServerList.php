@@ -1,5 +1,5 @@
 <?php
-
+//generates all mp3 songs list
 class MpServerList {
 
 
@@ -23,7 +23,14 @@ public  function getMp3List($fileFolder){
 	 //
 	 $dir = $fileFolder;  /*'images/test/'; */
      //$cols = 5; //
-     $files = scandir($dir); 
+	 
+	 
+     $filesX = scandir($dir);   //scan folder files
+	 
+	 //Fix not to include to scandir results inner folder "mp3/uploadFiles"
+	 $folders = array('..', '.', 'uploadFiles');  //array that contains which folders not to scandir()
+     $files = array_diff(/*scandir($dir)*/$filesX, $folders);
+	 //Fix not to include to scandir results inner folder "mp3/uploadFiles"
   
      //$k = 0; 
 	 
