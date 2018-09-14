@@ -2,6 +2,10 @@ $(document).ready(function(){
 	//audio is PLAYER 
 	 var audio = document.getElementById("audio"); //gets player html el ID //make this var global to pass to $("#myCheck").click(function() + $(".control_play").click(function()
 	 var trackID;
+	 
+	 
+	 
+	 
 	
     //Click on play/puase button in  song lists
 	// **************************************************************************************
@@ -10,7 +14,7 @@ $(document).ready(function(){
 	$(".control_play").click(function() {   // $(document).on("click", '.circle', function() {   // this  click  is  used  to   react  to  newly generated cicles;	
 	
 	    //If u click on "Pause" button to stop the song
-	    if ($(this).hasClass('fa-pause')){
+	    if ($(this).hasClass('fa-pause')){   //if is playing
 		    audio.pause();
             audio.currentTime = 0;
 		    $(this).removeClass("fa-pause").addClass("fa-play"); //sets icons to "PLAY" icon
@@ -18,13 +22,19 @@ $(document).ready(function(){
 		
 		    return false; //stop further
 		
-	    } else { //Play it 
+	    } else { //paused, do Play it 
 	  
 	        trackID = this.id;  //global varibale to use in code
             playThisTrack(this.id); // function to play the clicked track
 	        //changePlayPauseIcon($(this));  // function to change play/pause icons in song list,  works when u change songs in all song list -> reassigned to {function universalFunctionChange_Play_Pause_Icon_hideShow_EQ()}
             //showOrHideCustomEQinAllSongList($(this));	//show/hide EQ in a current  song all song list	  -> reassigned to {function universalFunctionChange_Play_Pause_Icon_hideShow_EQ()}
-	    }
+	        
+			//Universal function to Show/hide EQ <img> + to change Play/Pause Icons, works on Click on class="control-play-pause-EQ', that is embeded both in audio.Player and Play Button in all songs list
+	        universalFunctionChange_Play_Pause_Icon_hideShow_EQ();
+		}
+		
+		
+		
 	});
 	 
 	// **                                                                                  **
@@ -39,7 +49,7 @@ $(document).ready(function(){
 	
 	
 	
-    //Click on class="control-play-pause-EQ', that is embeded both in audio.Player and Play Button in all songs list
+    //Click on class="control-play-pause-EQ" in audio.PLAYER      //FALSE->  that is embeded both in audio.Player and Play Button in all songs list
 	// **************************************************************************************
     // **************************************************************************************
     //                                                                                     ** 
@@ -210,11 +220,11 @@ $(document).ready(function(){
 		   }
 		   
 		   //finding current audio Player song (i.e id which equils song name)
-		    var trackID = audio.src.split('/mp3/');  //gets current song in Player and splits the path(folder/mp3/song55.mp3) by  '/mp3/'
+		    var trackID = audio.src.split('/mp3/');  //gets current song in Player and splits the path(folder/mp3/song55.mp3) by  '/mp3/' -> gets [folder, song55.mp3]
 	        /*var*/ trackName = trackID[trackID.length - 1];  //gets the last array elem (i.e song name itself) //GLOBALLY declared before {$("#audio").bind('ended',} to be visible in {scrollResults()}
 			//alert(trackName);
 		    //Mega ERROR FIX-> some songs(and therefore their ids) contain "." which cause crash when trying to address those ids without using escape strings "\\"
-		    trackName = trackName.split('.').join('\\.');  //changes {6-calf-doubleR.mp3} to {6-calf-doubleR\\.mp3}
+		    trackName = trackName.split('.').join('\\.');  //adds escape slashes, changes {6-calf-doubleR.mp3} to {6-calf-doubleR\\.mp3}
 		   //finding current audio Player song (i.e id which equils song name)
 		   //alert(trackName);
 		   
@@ -241,7 +251,7 @@ $(document).ready(function(){
                 // END change current song icon to "Pause",  in all songs list---------
 		  
 		        //adds EQ 
-				//{passedThis} is $(this), we go up 2 levels to parent div and append inside in the end of it image
+				//{passedThis} is $(this), we go up 2 levels to parent div {parent().parent()} and append inside in the end of it image
 				$(".eqSmall").remove();  //removes any eqs
 				//adds eq to a specific song
 		        $("#" + trackName).parent().parent().append("<img class='eqSmall' src='images/eq.gif' alt='eq' />");

@@ -40,12 +40,14 @@ public  function getMp3List($fileFolder){
 	 
      for ($i = 0; $i < count($files); $i++) { 
          if (($files[$i] != ".") && ($files[$i] != "..")) { 
+		 
+		     $trackNumber = $i - 1;
 		     echo "<div class='single-song myShadow'>";
-			 echo "<p style='text-decoration:underline'> Song " . $files[$i] . "</p>";  //song name
+			 echo "<p class='underline'> Track $trackNumber: &nbsp;  <span class='underline'> " . $files[$i] . "</span></p>";  //song name
 			 
 			 //Play button
-			 //<!-- class="control-play-pause-EQ" is common for player and all songList to trigger changing Play/Pause Icon and hide/show EQ-->
-			 echo "<button  class='btn myShadow songCount' title='Play'><i class='fa fa-play control_play control-play-pause-EQ' id='" . $files[$i] . "' style='font-size:36px; margin-left:5px;'></i></button>&nbsp;&nbsp;&nbsp;";  
+			 //<!-- class="control-play-pause-EQ" is common for player and all songList to trigger changing Play/Pause Icon and hide/show EQ   control-play-pause-EQ-->
+			 echo "<button  class='btn myShadow songCount' title='Play'><i class='fa fa-play control_play ' id='" . $files[$i] . "' ></i></button>&nbsp;&nbsp;&nbsp;";  
              
 			 
 			 
