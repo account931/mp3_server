@@ -1,11 +1,12 @@
 <?php
 
-
+include 'autoload.php';
 
 //==========================================================
 
 $target_dir = "../../uploadFiles/"; // folder to save
 //$target_file = $target_dir . basename($_FILES["fileToUploadX"]["name"]);
+
 $uploadOk = 1; //status OK
 //$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -20,10 +21,16 @@ echo "<p> Quantity of files=> " . $total . "<p>";
 for( $i=0 ; $i < $total ; $i++ ) {
 //
 
-    $target_file = $target_dir . basename($_FILES["fileToUploadX"]["name"][$i]); //specifies the path of the file to be uploaded
+    $target_file = $target_dir . basename($_FILES["fileToUploadX"]["name"][$i]); //specifies the path of the file to be uploaded (folder/fileName.mp3)
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));      //file type
 
 
+	//Validate with Class if no Russ letters // NOT WORKING
+	$validate = new Validate();
+	$validate->checkRussianLetters($_FILES["fileToUploadX"]["name"][$i]);
+	
+	echo "<br> SSS ->  " . $uploadOk;
+	
     // Check if image file is a actual image or fake image- FOR IMAGES ONLY, deactivate to allow mp3
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fileToUploadX"]["tmp_name"][$i]);
