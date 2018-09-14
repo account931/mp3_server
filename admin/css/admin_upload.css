@@ -104,11 +104,16 @@ width:90%;
 
 .upload a{ color:white;}
 
+ /* Reg exp fron end error span */
+.error_req, .sp {color:red;}
 
 
 
 
-
+ /*======================================================================================================================= */
+ 
+ 
+ 
   /* Class that sets background-image */
 .head-style{
 	color:white;

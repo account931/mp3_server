@@ -30,12 +30,31 @@ describe mega error with zzz.hosting, when url was "mp3" , not "mp3_server", and
 
 
 
+//===========================
+Validation.
+Rules for song name validation: only latin, no blankspace, no "/mp3/"
 
-Rules for song name: only latin, no blankspace, no "/mp3/"
+Front-end validation:
+checks:(if Eng only, no russ, can contain[- _  0-9]).
+
+
+Back-end validation:
+checks: (if actual image + if file already exists + file size + if certain formats(jpg, png)).
 
 
 
+//=============================================================
+Known Errors: in mobile click on Audio.Player play/pause button does stop/start playing but does not change play/pause icons in all song list
 
 
+
+//==============================
+Admin authentication.
+Admin folder is admin section, where u can upload mp3.
+How Admin authentication works:
+1.It is based on var $_SESSION['auth7754321'] (true/false);
+2. Admin/Classes/authentication.php checks if $_SESSION['auth7754321'] is set. If TRUE, it redirect to admin/index.php, admin/index.php onece agian check if   $_SESSION['auth7754321'] isset, if not ->die("No access");
+3. Admin/Classes/authentication.php checks if $_SESSION['auth7754321'] is set. If FALSE, it display login/pass form.
+4. Users log/pass are stored in array $usersX, if u click form submit button, php checks if input value for loginX exists in $usersX as a key, if true, checks if this key value == password input. If true, set $_SESSION['auth7754321'].
 
 

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['auth7754321'])){
+	die("Access forbidden");
+}
+?>
 <!doctype html>
 <!--------------------------------Bootstrap  Main variant ------------------------------------------>
   <html lang="en-US">
@@ -8,8 +14,7 @@
       <meta name="keywords" content="Mp3 server">
       <title>Admin server</title>
   
-      <!--Favicon-->
-      <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+   
 
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  
@@ -23,16 +28,13 @@
 	  
       <script src="js/admin_upload.js"></script><!--  Core myFacebook JS-->
 	  <script src="js/changeStyleTheme.js"></script> <!-- change wallpapers,changeStyleTheme JS-->
-	  
-	  
-
-	  
+	    
 	  
 	  
 	  <meta name="viewport" content="width=device-width" />
 	  
 	  <!--Favicon-->
-      <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 
      </head>
 
@@ -72,13 +74,13 @@
 							  
 							      <!-- Input file field-->
                                   <div class="form-group upl-field"> <!-- class= 'upl-field' for appending in JS-->
-                                      <label for="sum">&nbsp;File</label>
-								      <input type="file" name="fileToUploadX[]" id="fileToUpload" class="form-control" required>
+                                      <label for="sum">&nbsp;File</label> <span class="error_req"> * </span> <span class="sp"  id ="fileToUploadErr"> </span></br>
+								      <input type="file" name="fileToUploadX[]"  id="fileToUpload" class="form-control fileCheck" required>
                                   </div><!-- br is a must to maintain symetri-->
 					 	 
 						          <!-- button to add fields, inputs--> 
 								  <div class="form-group">
-								  <label for="sum">&nbsp;File</label>
+								  <label for="sum">&nbsp;Add</label>
 					              <button class="add_form_field">Add New File &nbsp; <span style="font-size:16px; font-weight:bold;"> + </span></button>
 						          </div>
 								  
@@ -86,7 +88,7 @@
 								  
 								  <!-- Submit button-->
 								  <div class="form-group">
-						              <input type="submit" value="Upload Image" name="submit">
+						              <input type="submit" value="Upload Image" id="btnSubmit" name="submit">
                                       <!--<input id ="getFormSerialize" type="button" class="btn btn-default " style="font-size:20px" value="Send">-->
 						              <!--<br><br><br>-->
 								 </div>
@@ -147,8 +149,10 @@
 				 
 				 
 				 <!---------------------------------- Link to upload mp3--------------------------->
-				 <p class="upload"><a class="" href="../">Back to mp3</a></p> <!-- Link to upload-->
-				  
+				 <p class="upload">
+				 <a class="" href="Classes/logout.php">Log out</a><br> <!-- Log out-->
+				 <a class="" href="../">Back to mp3</a>     <!-- Link to upload-->
+				 </p>
 				  
 				  
 		

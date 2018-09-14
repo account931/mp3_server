@@ -156,7 +156,7 @@
 				 
 				 
 				 <!---------------------------------- Link to upload mp3--------------------------->
-				 <p class="upload"><a class="" href="admin/">Upload mp3</a></p> <!-- Link to upload-->
+				 <p class="upload"><a class="" href="admin/Classes/authentication.php">Upload mp3</a></p> <!-- Link to upload-->
 				  
 				  
 				  
