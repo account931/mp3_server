@@ -4,7 +4,7 @@
 
 //==========================================================
 
-$target_dir = "../../mp3/uploadFiles/"; // folder to save
+$target_dir = "../../uploadFiles/"; // folder to save
 //$target_file = $target_dir . basename($_FILES["fileToUploadX"]["name"]);
 $uploadOk = 1; //status OK
 //$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
